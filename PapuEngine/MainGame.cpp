@@ -27,6 +27,11 @@ void MainGame::initLevel(){
 	player->init(1.0f,
 		levels[currentLevel]->getPlayerPosition(),
 		&_inputManager, "Textures/circle.png");
+	for each (glm::vec2 pos in levels[currentLevel]->zombiesPosition)
+	{
+		zombies.push_back(new Zombie());
+		zombies.back()->init(pos, "Textures/zombie.png");
+	}
 	_spriteBacth.init();
 }
 
@@ -63,7 +68,9 @@ void MainGame::draw() {
 	for (auto& imagen : images) {
 		imagen->draw(_spriteBacth);
 	}
-
+	for (auto& zombie : zombies) {
+		zombie->draw(_spriteBacth);
+	}
 	_spriteBacth.end();
 	_spriteBacth.renderBatch();
 	
