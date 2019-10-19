@@ -5,6 +5,7 @@
 
 Level::Level(const string& filename)
 {
+	srand(time(NULL));
 	ifstream file;
 	file.open(filename);
 	if (file.fail()) {
@@ -16,6 +17,14 @@ Level::Level(const string& filename)
 		levelData.push_back(tmp);
 	}
 	parseLevel();
+}
+
+glm::vec2 Level::getRandomPosition()
+{
+	int nRandom = rand() % freePosition.size() + 1;
+	glm::vec2 randomPos = freePosition.at(nRandom);
+	freePosition.erase(freePosition.begin() + nRandom);
+	return randomPos;
 }
 
 void Level::draw() {
@@ -61,6 +70,7 @@ void Level::parseLevel() {
 			case 'Z':
 				break;
 			case '.':
+				freePosition.push_back(glm::vec2(x * TILE_WIDTH, y * TILE_WIDTH));
 				break;
 			default: 
 				break;

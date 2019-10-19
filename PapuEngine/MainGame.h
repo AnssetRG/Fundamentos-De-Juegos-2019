@@ -11,6 +11,7 @@
 #include "InputManager.h"
 #include "Player.h"
 #include "Human.h"
+#include "PNGs.h"
 
 enum class GameState
 {
@@ -29,6 +30,7 @@ private:
 	void procesInput();
 	GLS_Program _program;
 	vector<Sprite*> _sprites;
+	vector<PNGs*> images;
 	Camera2D _camera;
 	SpriteBacth _spriteBacth;
 	InputManager _inputManager;

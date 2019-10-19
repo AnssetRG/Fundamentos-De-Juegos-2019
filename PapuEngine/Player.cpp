@@ -6,7 +6,8 @@ Player::Player()
 }
 
 void Player::init(float _speed,
-	glm::vec2 _position, InputManager* _inputManager) {
+	glm::vec2 _position, InputManager* _inputManager, string _imgURL) {
+
 	inputManager = _inputManager;
 	speed = _speed;
 	position = _position;
@@ -14,22 +15,23 @@ void Player::init(float _speed,
 	color.g = 255;
 	color.b = 255;
 	color.a = 255;
+	imgURL = "Textures/circle.png";
 }
 
 void Player::update() {
-	if (inputManager->isKeyPressed(SDLK_w)) {
+	if (inputManager->isKeyPressed(SDLK_UP)) {
 		position.y += speed;
 	}
 
-	if (inputManager->isKeyPressed(SDLK_s)) {
+	if (inputManager->isKeyPressed(SDLK_DOWN)) {
 		position.y -= speed;
 	}
 
-	if (inputManager->isKeyPressed(SDLK_a)) {
+	if (inputManager->isKeyPressed(SDLK_LEFT)) {
 		position.x -= speed;
 	}
 
-	if (inputManager->isKeyPressed(SDLK_d)) {
+	if (inputManager->isKeyPressed(SDLK_RIGHT)) {
 		position.x += speed;
 	}
 }

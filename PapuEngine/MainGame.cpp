@@ -26,7 +26,7 @@ void MainGame::initLevel(){
 	player = new Player();
 	player->init(1.0f,
 		levels[currentLevel]->getPlayerPosition(),
-		&_inputManager);
+		&_inputManager, "Textures/circle.png");
 	_spriteBacth.init();
 }
 
@@ -59,6 +59,11 @@ void MainGame::draw() {
 	_spriteBacth.begin();
 	levels[currentLevel]->draw();
 	player->draw(_spriteBacth);
+
+	for (auto& imagen : images) {
+		imagen->draw(_spriteBacth);
+	}
+
 	_spriteBacth.end();
 	_spriteBacth.renderBatch();
 	
@@ -96,7 +101,38 @@ void MainGame::procesInput() {
 				break;
 		}
 
-		/*if (_inputManager.isKeyPressed(SDLK_w)) {
+		if (_inputManager.isKeyPressed(SDLK_a)) {
+			images.push_back(new PNGs());
+			glm::vec2 tempPos = levels[currentLevel]->getRandomPosition();
+			images.back()->init(tempPos, "Textures/A.png");
+			player->SetPosition(tempPos);
+		}
+		if (_inputManager.isKeyPressed(SDLK_b)) {
+			images.push_back(new PNGs());
+			glm::vec2 tempPos = levels[currentLevel]->getRandomPosition();
+			images.back()->init(tempPos, "Textures/B.png");
+			player->SetPosition(tempPos);
+		}
+		if (_inputManager.isKeyPressed(SDLK_c)) {
+			images.push_back(new PNGs());
+			glm::vec2 tempPos = levels[currentLevel]->getRandomPosition();
+			images.back()->init(tempPos, "Textures/C.png");
+			player->SetPosition(tempPos);
+		}
+		if (_inputManager.isKeyPressed(SDLK_d)) {
+			images.push_back(new PNGs());
+			glm::vec2 tempPos = levels[currentLevel]->getRandomPosition();
+			images.back()->init(tempPos, "Textures/D.png");
+			player->SetPosition(tempPos);
+		}
+		if (_inputManager.isKeyPressed(SDLK_e)) {
+			images.push_back(new PNGs());
+			glm::vec2 tempPos = levels[currentLevel]->getRandomPosition();
+			images.back()->init(tempPos, "Textures/E.png");
+			player->SetPosition(tempPos);
+		}
+		/*
+		if (_inputManager.isKeyPressed(SDLK_w)) {
 			_camera.setPosition(_camera.getPosition() + glm::vec2(0.0, CAMERA_SPEED));
 		}
 		if (_inputManager.isKeyPressed(SDLK_s)) {
@@ -107,13 +143,13 @@ void MainGame::procesInput() {
 		}
 		if (_inputManager.isKeyPressed(SDLK_d)) {
 			_camera.setPosition(_camera.getPosition() + glm::vec2(CAMERA_SPEED, 0.0));
-		}
-		if (_inputManager.isKeyPressed(SDLK_q)) {
+		}*/
+		if (_inputManager.isKeyPressed(SDLK_z)) {
 			_camera.setScale(_camera.getScale() + SCALE_SPEED);
 		}
-		if (_inputManager.isKeyPressed(SDLK_e)) {
+		if (_inputManager.isKeyPressed(SDLK_x)) {
 			_camera.setScale(_camera.getScale() - SCALE_SPEED);
-		}
+		}/*
 		if (_inputManager.isKeyPressed(SDL_BUTTON_LEFT)) {
 			glm::vec2 mouseCoords =  _camera.convertScreenToWorl(_inputManager.getMouseCoords());
 			cout << mouseCoords.x << " " << mouseCoords.y << endl;

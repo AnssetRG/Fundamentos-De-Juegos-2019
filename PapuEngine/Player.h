@@ -9,8 +9,9 @@ private:
 public:
 	Player();
 	~Player();
-	void init(float _speed, 
-			glm::vec2 _position, InputManager* _inputManager);
+	void init(float _speed,
+		glm::vec2 _position, InputManager* _inputManager, string _imgURL);
 	void update();
+	void SetPosition(glm::vec2 _position) { position = _position; };
 };
 
