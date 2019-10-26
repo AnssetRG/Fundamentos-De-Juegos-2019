@@ -49,7 +49,7 @@ void MainGame::initLevel() {
 	for (size_t i = 0; i < zombiePosition.size(); i++)
 	{
 		_zombies.push_back(new Zombie());
-		_zombies.back()->init(1.3f, zombiePosition[i]);
+		_zombies.back()->init(1.35f, zombiePosition[i]);
 	}
 }
 
@@ -87,15 +87,28 @@ void MainGame::draw() {
 
 	_spriteBacth.begin();
 	_levels[_currenLevel]->draw();
-
-	for (size_t i = 0; i < _humans.size(); i++)
+	int tempCont = 0;
+	vector<int> posEliminate;
+	for each (Human* objHuman in _humans)
 	{
-		_humans[i]->draw(_spriteBacth);
+		if (objHuman->getZombieState()) {
+			_zombies.push_back(new Zombie());
+			_zombies.back()->init(1.15f, objHuman->getPosition());
+			posEliminate.push_back(tempCont);
+		}else{
+			tempCont++;
+		}
+		objHuman->draw(_spriteBacth);
 	}
-
-	for (size_t i = 0; i < _zombies.size(); i++)
+	for each (int pos in posEliminate)
 	{
-		_zombies[i]->draw(_spriteBacth);
+		_humans.erase(_humans.begin() + pos);
+	}
+	posEliminate.clear();
+
+	for each (Zombie * objZombie in _zombies)
+	{
+		objZombie->draw(_spriteBacth);
 	}
 
 	_spriteBacth.end();

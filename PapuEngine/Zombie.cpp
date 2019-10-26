@@ -24,8 +24,8 @@ void Zombie::update(const std::vector<std::string>& levelData,
 		glm::vec2 direction = glm::normalize(
 			closeHuman->getPosition() - _position);
 		_position += direction*_speed;
-		if (direction.x < 0.5f && direction.y < 0.5f) {
-			closeHuman->changeColor(this->color);
+		if (collideWithAgent(closeHuman)){
+			closeHuman->changeZombieState(true);
 		}
 	}
 
