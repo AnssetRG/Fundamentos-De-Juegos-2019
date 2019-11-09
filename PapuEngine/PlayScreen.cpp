@@ -43,6 +43,11 @@ void PlayScreen::onEntry() {
 	initGUI();
 	background  = new Background("Textures/game2.png");
 	_spriteBatch.init();
+
+	player = new Player(53, 39, glm::vec2((_window->getScreenHeight() / 2) + 50, 20), "Textures/Player.png", &_game->_inputManager);
+	enemies.push_back(new Enemy(60, 60, glm::vec2(_window->getScreenWidth() - 80, _window->getScreenHeight() * 0.75), "Textures/piedra.png"));
+	enemies.push_back(new Enemy(60, 60, glm::vec2(_window->getScreenWidth() - 40, _window->getScreenHeight() * 0.75), "Textures/piedra.png"));
+	enemies.push_back(new Enemy(60, 60, glm::vec2(_window->getScreenWidth(), _window->getScreenHeight() * 0.75), "Textures/piedra.png"));
 }
 
 
@@ -50,6 +55,11 @@ void PlayScreen::onEntry() {
 void PlayScreen::update() {
 	camera.update();
 	checkInput();
+	player->update();
+	for each (Enemy * enemy in enemies)
+	{
+		enemy->update;
+	}
 }
 
 void PlayScreen::checkInput() {
@@ -72,6 +82,11 @@ void PlayScreen::draw() {
 	glUniform1i(imageLocation, 0);
 	_spriteBatch.begin();
 	background->draw(_spriteBatch);
+	player->draw(_spriteBatch);
+	for each (Enemy* enemy in enemies)
+	{
+		enemy->draw(_spriteBatch);
+	}
 	_spriteBatch.end();
 	_spriteBatch.renderBatch();
 	glBindTexture(GL_TEXTURE_2D, 0);

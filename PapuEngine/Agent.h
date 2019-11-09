@@ -2,6 +2,7 @@
 #include <glm\glm.hpp>
 #include "SpriteBacth.h"
 #include "GLTexture.h"
+#include <string>
 
 
 class Zombie;

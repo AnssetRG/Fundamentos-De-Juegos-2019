@@ -7,6 +7,8 @@
 #include "GLTexture.h"
 #include "SpriteFont.h"
 #include "Background.h"
+#include "Enemy.h"
+#include "Player.h"
 
 class PlayScreen: public IGameScreen
 {
@@ -18,6 +20,8 @@ private:
 	SpriteBacth _spriteBatch;
 	SpriteBacth _hudBach;
 	SpriteFont* _spriteFont;
+	vector<Enemy*> enemies;
+	Player* player;
 	void drawHUD();
 public:
 	PlayScreen(Window* window);

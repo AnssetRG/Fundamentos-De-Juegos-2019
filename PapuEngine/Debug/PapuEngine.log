@@ -1,3 +1,12 @@
-﻿  PlayScreen.cpp
-  PapuEngine.vcxproj -> C:\Users\Proyecto\Downloads\Juego1\Debug\PapuEngine.exe
-  PapuEngine.vcxproj -> C:\Users\Proyecto\Downloads\Juego1\Debug\PapuEngine.pdb (Partial PDB)
+﻿  Agent.cpp
+  Background.cpp
+  Button.cpp
+  ResourceManager.cpp
+  ScreenList.cpp
+  Sprite.cpp
+  TextureCache.cpp
+  Timing.cpp
+  Window.cpp
+  Generando código...
+C:\Users\Ansset Rojas G\Desktop\UPC\Ciclo VII\Fundamentos de Juegos\TA_Semana12\Fundamentos-De-Juegos-2019\PapuEngine\Timing.cpp(22,41): warning C4244: 'argumento': conversión de 'float' a 'Uint32'; posible pérdida de datos
+  PapuEngine.vcxproj -> C:\Users\Ansset Rojas G\Desktop\UPC\Ciclo VII\Fundamentos de Juegos\TA_Semana12\Fundamentos-De-Juegos-2019\Debug\PapuEngine.exe
