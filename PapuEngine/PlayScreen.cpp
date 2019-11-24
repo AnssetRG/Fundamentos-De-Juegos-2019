@@ -20,10 +20,9 @@ void PlayScreen::initGUI() {
 
 void PlayScreen::initSystem() {
 	textureEnemiesVector.clear();
-	textureEnemiesVector.push_back("Textures/p1.png");
-	textureEnemiesVector.push_back("Textures/p2.png");
-	textureEnemiesVector.push_back("Textures/p3.png");
-	textureEnemiesVector.push_back("Textures/p4.png");
+	textureEnemiesVector.push_back("Textures/Bacteria_Red.png");
+	textureEnemiesVector.push_back("Textures/Bacteria_Blue.png");
+	textureEnemiesVector.push_back("Textures/Bacteria_Green.png");
 
 	_program.compileShaders("Shaders/colorShaderVert.txt",
 		"Shaders/colorShaderFrag.txt");
@@ -49,7 +48,7 @@ void PlayScreen::onEntry() {
 	initSystem();
 	initGUI();
 	backGround = new Background("Textures/game.png");
-	ship = new Ship(6, "Textures/p1.png", &_inputManager);
+	ship = new Ship(6, "Textures/Doctor.png", &_inputManager);
 
 	std::mt19937 randomEngine(time(nullptr));
 	std::uniform_int_distribution<int>randType(0, textureEnemiesVector.size()-1);

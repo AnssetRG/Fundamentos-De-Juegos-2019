@@ -27,6 +27,7 @@ public:
 	}
 	void update();
 	void ChangeShipType(std::string texture);
+	void Fire();
 	~Ship();
 
 };
