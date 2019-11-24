@@ -1,10 +1,12 @@
 #include "Ship.h"
 #include "ResourceManager.h"
+#include <iostream>
 #include <SDL\SDL.h>
 
 Ship::Ship(float _speed, std::string texture, InputManager* _inputManager)
 {
-	speed = _speed;
+	speedX = _speed;
+	speedY = _speed / 2;
 	position = glm::vec2(350, 100);
 	textureID = ResourceManager::getTexture(texture).id;
 	inputManager = _inputManager;
@@ -19,7 +21,7 @@ void Ship::draw(SpriteBacth & spriteBatch)
 	const glm::vec4 uvRect(0.0f, 0.0f, 1.0f, 1.0f);
 	ColorRGBA color;
 	color.set(255, 255, 255, 255);
-	glm::vec4 desctRect(position.x, position.y, 50, 50);
+	glm::vec4 desctRect(position.x, position.y, 40, 50);
 	spriteBatch.draw(desctRect, uvRect, textureID, 0.0f, color);
 }
 
@@ -32,24 +34,25 @@ void Ship::update()
 
 	if (inputManager->isKeyPressed(SDLK_w)) {
 		if (position.y < screendHeightLimits) {
-			position.y += speed;
+			position.y += speedY;
 		}
 	}
 	if (inputManager->isKeyPressed(SDLK_s)) {
 		if (position.y > 0) {
-			position.y -= speed;
+			position.y -= speedY;
 		}
 	}
 	if (inputManager->isKeyPressed(SDLK_a)) {
 		if (position.x > 0) {
-			position.x -= speed;
+			position.x -= speedX;
 		}
 	}
 	if (inputManager->isKeyPressed(SDLK_d)) {
 		if (position.x < screenWidthLimits) {
-		position.x += speed;
+		position.x += speedX;
 		}
 	}
+
 	if (inputManager->isKeyReleased(SDLK_e) == true) {
 		currentType = currentType + 1;
 		if (currentType>=texturesVector.size()-1) {
@@ -65,7 +68,10 @@ void Ship::update()
 		}
 		ChangeShipType(texturesVector[currentType]);
 	}
-
+	if (!Fire_pressed && inputManager->isKeyDown(SDLK_SPACE) == true) {
+		Fire();
+		Fire_pressed = true;
+	}else if (Fire_pressed && inputManager->isKeyDown(SDLK_SPACE) == false) Fire_pressed = false;
 }
 
 void Ship::ChangeShipType(std::string texture)
@@ -75,6 +81,9 @@ void Ship::ChangeShipType(std::string texture)
 
 void Ship::Fire()
 {
+	
+	Pill* newPill = new Pill(texturesVector[currentType],currentType,position);
+	pills_vector.push_back(newPill);
 }
 
 Ship::~Ship()

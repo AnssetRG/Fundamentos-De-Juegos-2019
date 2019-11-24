@@ -136,6 +136,7 @@
     <ClCompile Include="MenuScreen.cpp" />
     <ClCompile Include="PapuEngine.cpp" />
     <ClCompile Include="picoPNG.cpp" />
+    <ClCompile Include="Pill.cpp" />
     <ClCompile Include="PlayScreen.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="ScreenList.cpp" />
@@ -167,6 +168,7 @@
     <ClInclude Include="MyScreens.h" />
     <ClInclude Include="PapuEngine.h" />
     <ClInclude Include="picoPNG.h" />
+    <ClInclude Include="Pill.h" />
     <ClInclude Include="PlayScreen.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="ScreenList.h" />

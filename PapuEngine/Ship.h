@@ -3,12 +3,14 @@
 #include <string>
 #include <glm/glm.hpp>
 #include "InputManager.h"
+#include "Pill.h"
 
 class Ship
 {
 
 private:
-	float speed;
+	float speedX;
+	float speedY;
 	std::string texture;
 	int textureID;
 	glm::vec2 position;
@@ -16,9 +18,12 @@ private:
 	int screenWidthLimits = 710;
 	int screendHeightLimits = 450;
 	std::vector<std::string> texturesVector;
+	bool Fire_pressed = false;
+	
 	int currentType = 0;
 
 public:
+	std::vector<Pill*> pills_vector;
 	Ship(float _speed, std::string texture, InputManager* _inputManager);
 	void draw(SpriteBacth& spriteBatch);
 	void setColor(ColorRGBA color);

@@ -91,6 +91,13 @@ void PlayScreen::update() {
 		enemiesVector[i]->update();
 	}
 
+	for each (Pill * pill in ship->pills_vector)
+	{
+		pill->update();
+		if (pill->CollideWithBacteria(enemiesVector)) {
+			std::cout << "Collisiono" << std::endl;
+		}
+	}
 
 	//std::cout << time<<endl;
 	checkInput();
@@ -142,7 +149,10 @@ void PlayScreen::draw() {
 	{
 		enemiesVector[i]->draw(_spriteBatch);
 	}
-
+	for each (Pill* pill in ship->pills_vector)
+	{
+		pill->draw(_spriteBatch);
+	}
 
 	_spriteBatch.end();
 	_spriteBatch.renderBatch();

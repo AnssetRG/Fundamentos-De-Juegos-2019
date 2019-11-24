@@ -1,3 +1,12 @@
-﻿  Ship.cpp
-C:\Users\Ansset Rojas G\Desktop\UPC\Ciclo VII\Fundamentos de Juegos\Semana15\Fundamentos-De-Juegos-2019\PapuEngine\Ship.cpp(55,18): warning C4018: '>=': no coinciden signed/unsigned
+﻿  App.cpp
+  Pill.cpp
+  PlayScreen.cpp
+C:\Users\Ansset Rojas G\Desktop\UPC\Ciclo VII\Fundamentos de Juegos\Semana15\Fundamentos-De-Juegos-2019\PapuEngine\PlayScreen.cpp(53,32): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\Ansset Rojas G\Desktop\UPC\Ciclo VII\Fundamentos de Juegos\Semana15\Fundamentos-De-Juegos-2019\PapuEngine\PlayScreen.cpp(78,29): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\Ansset Rojas G\Desktop\UPC\Ciclo VII\Fundamentos de Juegos\Semana15\Fundamentos-De-Juegos-2019\PapuEngine\PlayScreen.cpp(113,61): warning C4244: 'argumento': conversión de 'Sint32' a 'float'; posible pérdida de datos
+  Ship.cpp
+C:\Users\Ansset Rojas G\Desktop\UPC\Ciclo VII\Fundamentos de Juegos\Semana15\Fundamentos-De-Juegos-2019\PapuEngine\PlayScreen.cpp(113,45): warning C4244: 'argumento': conversión de 'Sint32' a 'float'; posible pérdida de datos
+  main.cpp
+  Generando código...
+C:\Users\Ansset Rojas G\Desktop\UPC\Ciclo VII\Fundamentos de Juegos\Semana15\Fundamentos-De-Juegos-2019\PapuEngine\Ship.cpp(58,18): warning C4018: '>=': no coinciden signed/unsigned
   PapuEngine.vcxproj -> C:\Users\Ansset Rojas G\Desktop\UPC\Ciclo VII\Fundamentos de Juegos\Semana15\Fundamentos-De-Juegos-2019\Debug\PapuEngine.exe

@@ -11,6 +11,7 @@ Enemy::Enemy(float _speed, std::string texture, int _enemyType)
 
 	position = glm::vec2(randPosY(randomEngine), 500);
 	textureID = ResourceManager::getTexture(texture).id;
+	enemy_radius = 50 / 2;
 }
 
 
