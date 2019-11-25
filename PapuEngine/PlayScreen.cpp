@@ -82,20 +82,19 @@ void PlayScreen::update() {
 		enemies_list.push_back(newEnemy);
 		currentTime = 0;
 	}
-	std::cout << enemies_list.size() << std::endl;
-	//list<Enemy*> enemies_to_eliminate;
+	list<Enemy*> enemies_to_eliminate;
 	for each (Enemy* enemy in enemies_list)
 	{
 		enemy->update();
 		if (enemy->getPosition().y < -500) {
-			//enemies_to_eliminate.push_back(enemy);
+			enemies_to_eliminate.push_back(enemy);
 		}
-	}/*
+	}
 	for each (Enemy* enemy in enemies_to_eliminate)
 	{
 		enemies_list.remove(enemy);
 	}
-	enemies_list.clear();*/
+	enemies_to_eliminate.clear();
 
 	for each (Pill * pill in ship->pills_vector)
 	{

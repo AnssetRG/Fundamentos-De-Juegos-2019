@@ -5,7 +5,7 @@
 Enemy::Enemy(float _speed, std::string texture, int _enemyType)
 {
 	speed = _speed;
-	enemyType = enemyType;
+	enemyType = _enemyType;
 	std::mt19937 randomEngine(time(nullptr));
 	std::uniform_int_distribution<int>randPosY(1, 600);
 

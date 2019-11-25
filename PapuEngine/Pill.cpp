@@ -36,8 +36,7 @@ Enemy* Pill::CollideWithBacteria(std::list<Enemy*> enemy_list)
 		if (enemigo_data.x < pill_data.z &&
 			pill_data.x < enemigo_data.z &&
 			enemigo_data.y < pill_data.w &&
-			pill_data.y < enemigo_data.w) {
-
+			pill_data.y < enemigo_data.w && currentType == enemy->getEnemyType()) {
 			return enemy;
 		}
 	}

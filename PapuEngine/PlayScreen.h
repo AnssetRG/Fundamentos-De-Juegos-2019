@@ -32,7 +32,7 @@ private:
 	list<Enemy*> enemies_list;
 	int typeOfEnemy = 0;
 	int currentTime = 0;
-	int timetoCreate = 100;
+	int timetoCreate = 50;
 
 public:
 	PlayScreen(Window* window);

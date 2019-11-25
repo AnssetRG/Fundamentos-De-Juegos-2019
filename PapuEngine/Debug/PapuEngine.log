@@ -1,6 +1,2 @@
-﻿  PlayScreen.cpp
-C:\Users\Ansset Rojas G\Desktop\UPC\Ciclo VII\Fundamentos de Juegos\Semana15\Fundamentos-De-Juegos-2019\PapuEngine\PlayScreen.cpp(51,32): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-C:\Users\Ansset Rojas G\Desktop\UPC\Ciclo VII\Fundamentos de Juegos\Semana15\Fundamentos-De-Juegos-2019\PapuEngine\PlayScreen.cpp(76,29): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-C:\Users\Ansset Rojas G\Desktop\UPC\Ciclo VII\Fundamentos de Juegos\Semana15\Fundamentos-De-Juegos-2019\PapuEngine\PlayScreen.cpp(117,61): warning C4244: 'argumento': conversión de 'Sint32' a 'float'; posible pérdida de datos
-C:\Users\Ansset Rojas G\Desktop\UPC\Ciclo VII\Fundamentos de Juegos\Semana15\Fundamentos-De-Juegos-2019\PapuEngine\PlayScreen.cpp(117,45): warning C4244: 'argumento': conversión de 'Sint32' a 'float'; posible pérdida de datos
+﻿  Pill.cpp
   PapuEngine.vcxproj -> C:\Users\Ansset Rojas G\Desktop\UPC\Ciclo VII\Fundamentos de Juegos\Semana15\Fundamentos-De-Juegos-2019\Debug\PapuEngine.exe

@@ -11,7 +11,7 @@ private:
 	std::string texture;
 	int textureID;
 	glm::vec2 position;
-	int enemyType;
+	int enemyType = -1;
 
 public:
 	Enemy(float _speed, std::string texture, int _enemyType);
