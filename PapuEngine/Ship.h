@@ -4,6 +4,7 @@
 #include <glm/glm.hpp>
 #include "InputManager.h"
 #include "Pill.h"
+#include <list>
 
 class Ship
 {
@@ -23,7 +24,7 @@ private:
 	int currentType = 0;
 
 public:
-	std::vector<Pill*> pills_vector;
+	std::list<Pill*> pills_vector;
 	Ship(float _speed, std::string texture, InputManager* _inputManager);
 	void draw(SpriteBacth& spriteBatch);
 	void setColor(ColorRGBA color);

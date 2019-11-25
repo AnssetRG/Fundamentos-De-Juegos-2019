@@ -21,6 +21,7 @@ public:
 	glm::vec2 getPosition()const {
 		return position;
 	}
+	int getEnemyType() { return enemyType; }
 	void update();
 	~Enemy();
 

@@ -9,6 +9,7 @@
 #include "Background.h"
 #include"Enemy.h"
 #include"Ship.h"
+#include <list>
 
 class PlayScreen: public IGameScreen
 {
@@ -27,8 +28,8 @@ private:
 	Background* backGround = nullptr;
 	Ship* ship = nullptr;
 	Enemy* enemy = nullptr;
-	vector<Enemy*> enemiesVector;
 	vector<string> textureEnemiesVector;
+	list<Enemy*> enemies_list;
 	int typeOfEnemy = 0;
 	int currentTime = 0;
 	int timetoCreate = 100;

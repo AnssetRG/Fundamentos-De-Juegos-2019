@@ -1,6 +1,7 @@
 #include "Pill.h"
 #include "ResourceManager.h"
 #include <SDL\SDL.h>
+#include <iostream>
 
 Pill::Pill(std::string texture, int type, glm::vec2 position)
 {
@@ -25,39 +26,24 @@ void Pill::update()
 	position.y += speed;
 }
 
-bool Pill::CollideWithBacteria(std::vector<Enemy *> enemy_vector)
+Enemy* Pill::CollideWithBacteria(std::list<Enemy*> enemy_list)
 {
-	PrintPosition(position,"pill");
-	for each (Enemy* enemy in enemy_vector)
+	for each (Enemy* enemy in enemy_list)
 	{
-		PrintPosition(enemy->getPosition(),"bacteria");
-		const float MIN_DISTANCE = pill_radius * 2.0f;
+		glm::vec4 enemigo_data(enemy->getPosition(), enemy->getPosition().x +50, enemy->getPosition().y +50);
+		glm::vec4 pill_data(this->position, this->position.x+20, this->position.y+25);
 
-		glm::vec2 centerPosA = position + glm::vec2(pill_radius);
+		if (enemigo_data.x < pill_data.z &&
+			pill_data.x < enemigo_data.z &&
+			enemigo_data.y < pill_data.w &&
+			pill_data.y < enemigo_data.w) {
 
-		glm::vec2 centerPosB =
-			enemy->getPosition() + glm::vec2(pill_radius);
-
-		glm::vec2 distVec = centerPosA - centerPosB;
-		float distance = glm::length(distVec);
-
-		float collisionDepth = MIN_DISTANCE - distance;
-		if (collisionDepth > 0) {
-			glm::vec2 collisionDepthVec =
-				glm::normalize(distVec) * collisionDepth;
-
-			position += collisionDepth / 2.0f;
-			enemy->getPosition() -= collisionDepth / 2.0f;
-			return true;
+			return enemy;
 		}
 	}
-	return false;
+	return NULL;
 }
 
-#include <iostream>
-void Pill::PrintPosition(glm::vec2 _position, std::string name) {
-	std::cout <<name<<" "<< _position.x << "," << _position.y << "\n";
-}
 
 Pill::~Pill()
 {

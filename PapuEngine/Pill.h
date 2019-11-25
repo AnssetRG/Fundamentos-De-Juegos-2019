@@ -4,6 +4,7 @@
 #include <glm/glm.hpp>
 #include "InputManager.h"
 #include "Enemy.h"
+#include <list>
 class Pill
 {
 private:
@@ -21,7 +22,7 @@ public:
 	float pill_radius;
 	void draw(SpriteBacth& spriteBatch);
 	void update();
-	bool CollideWithBacteria(std::vector<Enemy*> enemy_vector);
+	Enemy* CollideWithBacteria(std::list<Enemy*> enemy_list);
 	~Pill();
 };
 

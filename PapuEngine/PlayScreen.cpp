@@ -4,7 +4,6 @@
 #include <iostream>
 #include <random>
 #include <ctime>
-
 PlayScreen::PlayScreen(Window* window) :_window(window)
 {
 }
@@ -20,12 +19,11 @@ void PlayScreen::initGUI() {
 
 void PlayScreen::initSystem() {
 	textureEnemiesVector.clear();
-	textureEnemiesVector.push_back("Textures/Bacteria_Red.png");
-	textureEnemiesVector.push_back("Textures/Bacteria_Blue.png");
-	textureEnemiesVector.push_back("Textures/Bacteria_Green.png");
+	textureEnemiesVector.push_back("Textures/Bacteria_Red.png");//0
+	textureEnemiesVector.push_back("Textures/Bacteria_Blue.png");//1
+	textureEnemiesVector.push_back("Textures/Bacteria_Green.png");//2
 
-	_program.compileShaders("Shaders/colorShaderVert.txt",
-		"Shaders/colorShaderFrag.txt");
+	_program.compileShaders("Shaders/colorShaderVert.txt", "Shaders/colorShaderFrag.txt");
 	_program.addAtribute("vertexPosition");
 	_program.addAtribute("vertexColor");
 	_program.addAtribute("vertexUV");
@@ -81,22 +79,28 @@ void PlayScreen::update() {
 		//cout << typeOfEnemy << endl;
 
 		Enemy* newEnemy = new Enemy(6, textureEnemiesVector[typeOfEnemy],typeOfEnemy);
-		enemiesVector.push_back(newEnemy);
+		enemies_list.push_back(newEnemy);
 		currentTime = 0;
 	}
-
-
-	for (size_t i = 0; i < enemiesVector.size(); i++)
+	std::cout << enemies_list.size() << std::endl;
+	//list<Enemy*> enemies_to_eliminate;
+	for each (Enemy* enemy in enemies_list)
 	{
-		enemiesVector[i]->update();
+		enemy->update();
+		if (enemy->getPosition().y < -500) {
+			//enemies_to_eliminate.push_back(enemy);
+		}
+	}/*
+	for each (Enemy* enemy in enemies_to_eliminate)
+	{
+		enemies_list.remove(enemy);
 	}
+	enemies_list.clear();*/
 
 	for each (Pill * pill in ship->pills_vector)
 	{
 		pill->update();
-		if (pill->CollideWithBacteria(enemiesVector)) {
-			std::cout << "Collisiono" << std::endl;
-		}
+		enemies_list.remove(pill->CollideWithBacteria(enemies_list));
 	}
 
 	//std::cout << time<<endl;
@@ -145,9 +149,9 @@ void PlayScreen::draw() {
 	ship->draw(_spriteBatch);
 	backGround->draw(_spriteBatch);
 	enemy->draw(_spriteBatch);
-	for (size_t i = 0; i < enemiesVector.size(); i++)
+	for each (Enemy * enemy in enemies_list)
 	{
-		enemiesVector[i]->draw(_spriteBatch);
+		enemy->draw(_spriteBatch);
 	}
 	for each (Pill* pill in ship->pills_vector)
 	{

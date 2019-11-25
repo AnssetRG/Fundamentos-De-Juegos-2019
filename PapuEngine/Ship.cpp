@@ -10,9 +10,9 @@ Ship::Ship(float _speed, std::string texture, InputManager* _inputManager)
 	position = glm::vec2(350, 100);
 	textureID = ResourceManager::getTexture(texture).id;
 	inputManager = _inputManager;
-	texturesVector.push_back("Textures/Pill_green.png");
 	texturesVector.push_back("Textures/Pill_red.png");
 	texturesVector.push_back("Textures/Pill_blue.png");
+	texturesVector.push_back("Textures/Pill_green.png");
 
 }
 
